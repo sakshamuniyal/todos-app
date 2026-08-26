@@ -5,6 +5,7 @@
   "private": true,
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/node": "latest",
     "@types/pg": "^8.23.1"
   },
   "peerDependencies": {
