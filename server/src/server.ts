@@ -7,9 +7,20 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+const corsOrigin = process.env.CORS_ORIGIN;
 
+if (!corsOrigin) {
+    throw new Error("CORS_ORIGIN is not configured");
+}
 
-app.use(cors());
+const corsOptions = {
+    origin: corsOrigin,
+    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
+app.options(/.*/, cors(corsOptions));
 app.use(express.json());
 
 
