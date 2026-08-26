@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import type { Todo } from './types/types';
 
 type Filter = 'all' | 'active' | 'completed';
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.BASE_API_URL;
 
 if (!API_URL) {
-  throw new Error('VITE_API_URL is not configured');
+  throw new Error('BASE_API_URL is not configured');
 }
 
 function App() {
